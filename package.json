@@ -3,6 +3,11 @@
   "displayName": "React Elmish Snippets",
   "description": "Snippets for usage with the react-elmish package.",
   "version": "0.0.1",
+  "publisher": "atheck",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atheck/react-elmish-snippets.git"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },
