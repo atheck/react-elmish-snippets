@@ -1,0 +1,20 @@
+{
+  "name": "react-elmish-snippets",
+  "displayName": "React Elmish Snippets",
+  "description": "Snippets for usage with the react-elmish package.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}

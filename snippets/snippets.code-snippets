@@ -1,0 +1,70 @@
+{
+	"Elmish types": {
+		"prefix": "elmish-types",
+		"body": [
+			"import { ErrorMessage } from \"react-elmish\";",
+			"",
+			"type Message =",
+			"\t| ErrorMessage;",
+			"",
+			"interface Props {}",
+			"",
+			"interface Model {}",
+			"",
+			"export type {",
+			"\tMessage,",
+			"\tProps,",
+			"\tModel,",
+			"};"
+		],
+		"description": "Creates types for the elmish pattern.",
+	},
+	"Elmish state": {
+		"prefix": "elmish-state",
+		"body": [
+			"import { cmd, errorHandler, errorMsg, InitResult, UpdateMap } from \"react-elmish\";",
+			"import { Message, Model, Props } from \"./Types\";",
+			"",
+			"const Msg = {",
+			"\t...errorMsg,",
+			"};",
+			"",
+			"function init (): InitResult<Model, Message> {",
+    		"\treturn [{}];",
+			"}",
+			"",
+			"const update: UpdateMap<Props, Model, Message> = {",
+			"\t...errorHandler(),",
+			"};",
+			"",
+			"export {",
+			"\tMsg,",
+			"\tinit,",
+			"\tupdate,",
+			"};"
+		],
+		"description": "Creates the state update for the elmish pattern.",
+	},
+	"Elmish message creator": {
+		"prefix": "elmish-msg",
+		"body": [
+			"$1: ($2: $3): Message => ({ name: \"$1\", $2 }),"
+		]
+	},
+	"Elmish update test": {
+		"prefix": "elmish-update-test",
+		"body": [
+			"it(\"$1\", async () => {",
+			"\t// arrange",
+			"\tconst args = createUpdateArgs(Msg.$2());",
+			"",
+			"\t// act",
+			"\tconst [model, messages] = await updateAndExecFn(...args);",
+			"",
+			"\t// assert",
+			"\texpect(model).toStrictEqual<Partial<Model>>({ $0 });",
+			"\texpect(messages).toStrictEqual([]);",
+			"});",
+		]
+	}
+}
